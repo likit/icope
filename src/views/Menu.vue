@@ -1,0 +1,52 @@
+<template>
+<div>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-one-third is-offset-4 box">
+          <b-menu>
+            <b-menu-list label="Menu">
+              <b-menu-item icon="settings" :active="isActive" expanded>
+                <template #label="props">
+                  Cognitive Capacity
+                  <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
+                </template>
+                <b-menu-item label="Screening"></b-menu-item>
+                <b-menu-item label="Mini-Cog"></b-menu-item>
+              </b-menu-item>
+              <b-menu-item icon="settings" :active="isActive" expanded>
+                <template #label="props">
+                  Locomotor Capacity
+                  <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
+                </template>
+                <b-menu-item label="Screening"></b-menu-item>
+                <b-menu-item label="Mini-Cog"></b-menu-item>
+              </b-menu-item>
+              <b-menu-item icon="account" label="My Account">
+                <b-menu-item label="Account data"></b-menu-item>
+                <b-menu-item label="Addresses"></b-menu-item>
+              </b-menu-item>
+            </b-menu-list>
+            <b-menu-list>
+              <b-menu-item label="Home" icon="Home" tag="router-link" :to="{ name: 'Entry'}"></b-menu-item>
+            </b-menu-list>
+            <b-menu-list label="Actions">
+              <b-menu-item label="Logout"></b-menu-item>
+            </b-menu-list>
+          </b-menu>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</template>
+
+<script>
+export default {
+  name: "Menu"
+}
+</script>
+
+<style scoped>
+
+</style>
