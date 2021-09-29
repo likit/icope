@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="buttons is-centered">
-        <router-link :to="{ name: 'Entry' }" class="button is-light">Home</router-link>
+        <router-link :to="{ name: 'Menu' }" class="button is-light">Menu</router-link>
       </div>
     </div>
   </section>
