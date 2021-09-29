@@ -21,6 +21,11 @@ const routes = [
         name: 'MiniCog',
         component: () => import('../views/MiniCog')
     },
+    {
+        path: '/chair-rise-test',
+        name: 'ChairRiseTest',
+        component: () => import('../views/ChairRiseTest')
+    },
 ]
 
 const router = new VueRouter({
