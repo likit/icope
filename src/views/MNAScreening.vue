@@ -108,6 +108,9 @@
           <router-link to="/menu">Further assessment >>></router-link>
         </div>
       </div>
+      <div class="buttons is-centered">
+        <router-link :to="{ name: 'Menu'}" class="button is-light">Menu</router-link>
+      </div>
     </div>
   </section>
 </div>
@@ -115,7 +118,7 @@
 
 <script>
 export default {
-  name: "MNA",
+  name: "MNAScreening",
   data () {
     return {
       A: null,

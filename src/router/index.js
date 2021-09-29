@@ -41,6 +41,11 @@ const routes = [
         name: 'MNAScreening',
         component: () => import('../views/MNAScreening')
     },
+    {
+        path: '/mna-assessment',
+        name: 'MNAAssessment',
+        component: () => import('../views/MNAAssessment')
+    },
 ]
 
 const router = new VueRouter({

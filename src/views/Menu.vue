@@ -23,6 +23,8 @@
                              label="Screening"></b-menu-item>
                 <b-menu-item tag="router-link" :to="{ name: 'MNAScreening' }"
                              label="MNA Screening"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'MNAAssessment' }"
+                             label="MNA Assessment"></b-menu-item>
               </b-menu-item>
               <b-menu-item icon="settings" :active="isActive" expanded>
                 <template #label="props">
