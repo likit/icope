@@ -31,6 +31,16 @@ const routes = [
         name: 'SPPB',
         component: () => import('../views/SPPB')
     },
+    {
+        path: '/mulnutrition',
+        name: 'Mulnutrition',
+        component: () => import('../views/Mulnutrition')
+    },
+    {
+        path: '/mna-screening',
+        name: 'MNAScreening',
+        component: () => import('../views/MNAScreening')
+    },
 ]
 
 const router = new VueRouter({
