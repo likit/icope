@@ -36,6 +36,16 @@
                 <b-menu-item tag="router-link" :to="{ name: 'SPPB' }"
                              label="Short Physical Performance Battery (SPPB)"></b-menu-item>
               </b-menu-item>
+              <b-menu-item icon="settings" :active="isActive" expanded>
+                <template #label="props">
+                  Visual Capacity
+                  <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
+                </template>
+                <b-menu-item tag="router-link" :to="{ name: 'DistanceVision' }"
+                             label="Distance vision test"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'NearVision' }"
+                             label="Near vision test"></b-menu-item>
+              </b-menu-item>
               <b-menu-item icon="account" label="My Account">
                 <b-menu-item label="Account data"></b-menu-item>
                 <b-menu-item label="Addresses"></b-menu-item>

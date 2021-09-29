@@ -46,6 +46,16 @@ const routes = [
         name: 'MNAAssessment',
         component: () => import('../views/MNAAssessment')
     },
+    {
+        path: '/distance-vision',
+        name: 'DistanceVision',
+        component: () => import('../views/DistanceVision')
+    },
+    {
+        path: '/near-vision',
+        name: 'NearVision',
+        component: () => import('../views/NearVision')
+    },
 ]
 
 const router = new VueRouter({
