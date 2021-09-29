@@ -26,6 +26,11 @@ const routes = [
         name: 'ChairRiseTest',
         component: () => import('../views/ChairRiseTest')
     },
+    {
+        path: '/sppb',
+        name: 'SPPB',
+        component: () => import('../views/SPPB')
+    },
 ]
 
 const router = new VueRouter({

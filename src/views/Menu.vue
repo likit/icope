@@ -19,8 +19,10 @@
                   Locomotor Capacity
                   <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
                 </template>
-                <b-menu-item label="Screening"></b-menu-item>
-                <b-menu-item label="Mini-Cog"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'ChairRiseTest' }"
+                             label="Screening"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'SPPB' }"
+                             label="Short Physical Performance Battery (SPPB)"></b-menu-item>
               </b-menu-item>
               <b-menu-item icon="account" label="My Account">
                 <b-menu-item label="Account data"></b-menu-item>
