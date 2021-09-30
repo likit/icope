@@ -29,7 +29,7 @@
             </div>
             Time the person taking the test - further assessment is needed if they <strong>cannot stand up five times
             within 14 seconds.</strong>
-            &nbsp;<router-link :to="{ name: 'ChairRiseTest' }">Further assessment >>></router-link>
+            &nbsp;<router-link :to="{ name: 'SPPB' }">Further assessment >>></router-link>
           </div>
         </div>
         <div class="buttons is-centered">

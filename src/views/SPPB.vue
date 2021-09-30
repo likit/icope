@@ -19,39 +19,39 @@
             <strong>A. Side-by-side stand</strong>
             score {{ standScore }}
             <b-field>
-              <b-radio v-model="stand" native-value="1">Held for 10 seconds</b-radio>
+              <b-radio v-model="SPPB.stand" native-value="1">Held for 10 seconds</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="stand" native-value="2">Not held for 10 seconds</b-radio>
+              <b-radio v-model="SPPB.stand" native-value="2">Not held for 10 seconds</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="stand" native-value="3">Not attempted</b-radio>
+              <b-radio v-model="SPPB.stand" native-value="3">Not attempted</b-radio>
             </b-field>
           </p>
           <p class="notification is-light">
             <strong>B. Semi-tandem stand</strong>
             score {{ semiTandemStandScore }}
             <b-field>
-              <b-radio v-model="semiTandemStand" native-value="1">Held for 10 seconds</b-radio>
+              <b-radio v-model="SPPB.semiTandemStand" native-value="1">Held for 10 seconds</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="semiTandemStand" native-value="2">Not held for 10 seconds</b-radio>
+              <b-radio v-model="SPPB.semiTandemStand" native-value="2">Not held for 10 seconds</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="semiTandemStand" native-value="3">Not attempted</b-radio>
+              <b-radio v-model="SPPB.semiTandemStand" native-value="3">Not attempted</b-radio>
             </b-field>
           </p>
           <p class="notification is-light">
             <strong>B. Tandem stand</strong>
             score {{ tandemStandScore }}
             <b-field>
-              <b-radio v-model="tandemStand" native-value="1">Held for 10 seconds</b-radio>
+              <b-radio v-model="SPPB.tandemStand" native-value="1">Held for 10 seconds</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="tandemStand" native-value="2">Not held for 10 seconds</b-radio>
+              <b-radio v-model="SPPB.tandemStand" native-value="2">Not held for 10 seconds</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="tandemStand" native-value="3">Not attempted</b-radio>
+              <b-radio v-model="SPPB.tandemStand" native-value="3">Not attempted</b-radio>
             </b-field>
           </p>
         </div>
@@ -63,21 +63,21 @@
             Gait speed test: Time to walk four meters
           </h2>
           <p class="notification is-light">
-            Time for four-metre walk: score {{ gait }}
+            Time for four-metre walk: score {{ SPPB.gait }}
             <b-field>
-              <b-radio v-model="gait" native-value="4">&lt;&nbsp;4.82 seconds 4 points</b-radio>
+              <b-radio v-model="SPPB.gait" native-value="4">&lt;&nbsp;4.82 seconds 4 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="gait" native-value="3">4.82 - 6.20 seconds 3 points</b-radio>
+              <b-radio v-model="SPPB.gait" native-value="3">4.82 - 6.20 seconds 3 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="gait" native-value="2">6.21 - 8.70 seconds 2 points</b-radio>
+              <b-radio v-model="SPPB.gait" native-value="2">6.21 - 8.70 seconds 2 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="gait" native-value="1">&gt;&nbsp; 8.70 seconds 1 points</b-radio>
+              <b-radio v-model="SPPB.gait" native-value="1">&gt;&nbsp; 8.70 seconds 1 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="gait" native-value="0">Unable to complete 0 points</b-radio>
+              <b-radio v-model="SPPB.gait" native-value="0">Unable to complete 0 points</b-radio>
             </b-field>
           </p>
         </div>
@@ -89,21 +89,21 @@
             Chair rise test: Time to rise from a chair five times
           </h2>
           <p class="notification is-light">
-            score {{ rise }}
+            score {{ SPPB.rise }}
             <b-field>
-              <b-radio v-model="rise" native-value="4">&lt;&nbsp;11.19 seconds 4 points</b-radio>
+              <b-radio v-model="SPPB.rise" native-value="4">&lt;&nbsp;11.19 seconds 4 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="rise" native-value="3">11.2 - 13.69 seconds 3 points</b-radio>
+              <b-radio v-model="SPPB.rise" native-value="3">11.2 - 13.69 seconds 3 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="rise" native-value="2">13.7 - 16.69 seconds 2 points</b-radio>
+              <b-radio v-model="SPPB.rise" native-value="2">13.7 - 16.69 seconds 2 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="rise" native-value="1">16.7 - 59.9 seconds 1 points</b-radio>
+              <b-radio v-model="SPPB.rise" native-value="1">16.7 - 59.9 seconds 1 points</b-radio>
             </b-field>
             <b-field>
-              <b-radio v-model="rise" native-value="0">Unable to complete 0 points</b-radio>
+              <b-radio v-model="SPPB.rise" native-value="0">Unable to complete 0 points</b-radio>
             </b-field>
           </p>
         </div>
@@ -122,6 +122,9 @@
               Normal mobility (10 - 12 points)
             </p>
           </div>
+          <pre>
+            {{ this.SPPB }}
+          </pre>
           <div class="buttons is-centered">
             <router-link :to="{ name: 'Menu' }" class="button is-light">Menu</router-link>
             <button class="button is-success">Save</button>
@@ -136,41 +139,45 @@
 <script>
 export default {
   name: "SPPB",
-  data () {
-    return {
-      stand: null,
-      tandemStand: null,
-      semiTandemStand: null,
-      gait: null,
-      rise: null
-    }
-  },
   computed: {
+    SPPB: {
+      get () {
+        return this.$store.state.form.SPPB;
+      },
+      set () {
+        this.$store.commit('UPDATE_SPPB', this.SPPB)
+      }
+    },
     standScore () {
-      if (this.stand == null) {
+      if (this.SPPB.stand == null) {
         return null
       }
-      return parseInt(this.stand) > 1 ? 0 : 1
+      return parseInt(this.SPPB.stand) > 1 ? 0 : 1
     },
     semiTandemStandScore () {
-      if (this.semiTandemStand == null) {
+      if (this.SPPB.semiTandemStand == null) {
         return null
       }
-      return parseInt(this.semiTandemStand) > 1 ? 0 : 1
+      return parseInt(this.SPPB.semiTandemStand) > 1 ? 0 : 1
     },
     tandemStandScore () {
-      if (this.tandemStand == null) {
+      if (this.SPPB.tandemStand == null) {
         return null
       }
-      return parseInt(this.tandemStand) > 1 ? 0 : 1
+      return parseInt(this.SPPB.tandemStand) > 1 ? 0 : 1
     },
     totalScore () {
-      let stand = this.stand == null ? 0 : this.standScore
-      let tandem = this.tandemStand == null ? 0 : this.tandemStandScore
-      let semi = this.semiTandemStand == null ? 0 : this.semiTandemStandScore
-      let gait = this.gait == null ? 0 : parseInt(this.gait)
-      let rise = this.rise == null ? 0 : parseInt(this.rise)
+      let stand = this.SPPB.stand == null ? 0 : this.standScore
+      let tandem = this.SPPB.tandemStand == null ? 0 : this.tandemStandScore
+      let semi = this.SPPB.semiTandemStand == null ? 0 : this.semiTandemStandScore
+      let gait = this.SPPB.gait == null ? 0 : parseInt(this.SPPB.gait)
+      let rise = this.SPPB.rise == null ? 0 : parseInt(this.SPPB.rise)
       return stand + tandem + semi + gait + rise
+    }
+  },
+  watch: {
+    totalScore (newValue) {
+      this.$store.commit('UPDATE_SPPB_SCORE', newValue)
     }
   }
 }

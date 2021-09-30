@@ -10,6 +10,14 @@ function initForm() {
             recall: null,
             clock: null,
             total: null
+        },
+        SPPB: {
+            stand: null,
+            tandemStand: null,
+            semiTandemStand: null,
+            gait: null,
+            rise: null,
+            total: null
         }
     }
 }
@@ -27,6 +35,12 @@ const store = new Vuex.Store({
         },
         UPDATE_MINICOG_SCORE(state, score) {
             state.form.minicog.total = score
+        },
+        UPDATE_SPPB(state, data) {
+            state.form.SPPB = data
+        },
+        UPDATE_SPPB_SCORE(state, score) {
+            state.form.SPPB.total = score
         }
     }
 })
