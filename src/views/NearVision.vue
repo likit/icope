@@ -12,13 +12,21 @@
             </p>
             <br>
             <b-field>
-              <b-checkbox true-value="pass" false-value="fail" v-model="result">
+              <b-radio native-value="pass" v-model="near.result">
                 If the person identifies the directions of at least three out of four largest Es, s/he <strong>PASS</strong> the near vision screening test.
-              </b-checkbox>
+              </b-radio>
+            </b-field>
+            <b-field>
+              <b-radio native-value="fail" v-model="near.result">
+                <strong>FAIL</strong>
+              </b-radio>
             </b-field>
           </div>
         </div>
       </div>
+      <pre>
+        {{ $store.state.form.vision }}
+      </pre>
       <div class="buttons is-centered">
         <router-link :to="{ name: 'Menu'}" class="button is-light">Menu</router-link>
         <button class="button is-success">Save</button>
@@ -30,7 +38,17 @@
 
 <script>
 export default {
-  name: "NearVision"
+  name: "NearVision",
+  computed: {
+    near: {
+      get () {
+        return this.$store.state.form.vision.near
+      },
+      set () {
+        this.$store.commit('UPDATE_NEAR_VISION', this.near)
+      }
+    }
+  }
 }
 </script>
 
