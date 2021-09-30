@@ -2,7 +2,7 @@
   <div>
     <section class="section">
       <div class="container">
-        <b-steps size="is-medium" :has-navigation="false" v-model="activeStep">
+        <b-steps size="is-medium" :has-navigation="false">
           <b-step-item label="Screening for Cognitive Decline"
                        step="1" icon-pack="fas" icon="account">
           </b-step-item>
@@ -17,7 +17,7 @@
               <tr>
                 <td>
                   <b-field>
-                    <b-numberinput v-model="recall" min="0" max="3"></b-numberinput>
+                    <b-numberinput v-model="minicog.recall" min="0" max="3"></b-numberinput>
                   </b-field>
                 </td>
                 <td>
@@ -27,7 +27,7 @@
               <tr>
                 <td>
                   <b-field>
-                    <b-numberinput min="0" max="2" step="2" v-model="clock"></b-numberinput>
+                    <b-numberinput min="0" max="2" step="2" v-model="minicog.clock"></b-numberinput>
                   </b-field>
                 </td>
                 <td>
@@ -56,6 +56,9 @@
             <p>
               If fail, <strong>cognitive decline is likely</strong>
             </p>
+            <pre>
+            {{ $store.state.form.minicog }}
+            </pre>
             <a>Click to assess cognitive capacity</a>
           </div>
         </div>
@@ -70,20 +73,28 @@
 <script>
 export default {
   name: "MiniCog",
-  data () {
-    return {
-      activeStep: 2,
-      recall: 0,
-      clock: 0
+  computed: {
+    minicog: {
+      get () {
+        return this.$store.state.form.minicog
+      },
+      set () {
+        this.$store.state.commit('UPDATE_MINICOG', this.minicog)
+      }
+    },
+    totalScore : {
+      get () {
+        if (this.minicog.recall != null && this.minicog.clock != null) {
+          return this.minicog.recall + this.minicog.clock
+        } else {
+          return null
+        }
+      },
     }
   },
-  computed: {
-    totalScore () {
-      if (this.recall != null && this.clock != null) {
-        return this.recall + this.clock
-      } else {
-        return null
-      }
+  watch: {
+    totalScore (newValue) {
+      this.$store.commit('UPDATE_MINICOG_SCORE', newValue)
     }
   }
 }

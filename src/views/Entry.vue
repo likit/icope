@@ -8,10 +8,11 @@
           </figure>
         </div>
         <h1 class="title has-text-centered">Welcome to ICOPE App</h1>
+        country {{ form.country }}
         <div class="columns">
           <div class="column is-one-third is-offset-4 box">
-            <b-field label="Country">
-              <b-select placeholder="Select a country" size="is-large" expanded required>
+            <b-field label="Country" type="is-danger">
+              <b-select placeholder="Select a country" v-model="form.country" size="is-large" expanded required>
                 <option value="Thailand">Thailand</option>
                 <option value="Myanmar">Myanmar</option>
                 <option value="Malaysia">Malaysia</option>
@@ -20,7 +21,6 @@
             </b-field>
             <div class="buttons is-centered">
               <b-button type="is-primary"
-                        size="is-large"
                         @click="$router.push({ name: 'Menu'})"
                         icon-right="chevron-right"
                         icon-pack="fas">
@@ -36,7 +36,17 @@
 
 <script>
 export default {
-  name: "Entry"
+  name: "Entry",
+  computed: {
+    form: {
+      get () {
+        return this.$store.state.form
+      },
+      set () {
+        this.$store.state.commit('UPDATE_FORM', this.form)
+      }
+    }
+  }
 }
 </script>
 
