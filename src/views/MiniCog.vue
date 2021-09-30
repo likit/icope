@@ -2,11 +2,15 @@
   <div>
     <section class="section">
       <div class="container">
-        <b-steps size="is-medium" :has-navigation="false">
-          <b-step-item label="Screening for Cognitive Decline"
-                       step="1" icon-pack="fas" icon="account">
+        <b-steps size="is-medium" v-model="activeStep" :has-navigation="false">
+          <b-step-item label="Cognitive Capacity" step="1" icon="account">
           </b-step-item>
-          <b-step-item label="Mini-Cog" step="2" icon="account"></b-step-item>
+          <b-step-item label="Locomotor Capacity" step="2" icon="account"></b-step-item>
+          <b-step-item label="Malnutrition" step="3" icon="account"></b-step-item>
+          <b-step-item label="Visual Capacity" step="4" icon="account"></b-step-item>
+          <b-step-item label="Hearing Capacity" step="5" icon="account"></b-step-item>
+          <b-step-item label="Psychological Capacity" step="6" icon="account"></b-step-item>
+          <b-step-item label="Social Care and Support" step="7" icon="account"></b-step-item>
         </b-steps>
         <div class="columns">
           <div class="column is-two-thirds is-offset-2 box">
@@ -47,23 +51,8 @@
             </table>
           </div>
         </div>
-        <br>
-        <div class="columns">
-          <div class="column is-one-third is-offset-4 box">
-            <h1 class="title">
-              Pass or fail?
-            </h1>
-            <p>
-              If fail, <strong>cognitive decline is likely</strong>
-            </p>
-            <pre>
-            {{ $store.state.form.minicog }}
-            </pre>
-            <a>Click to assess cognitive capacity</a>
-          </div>
-        </div>
         <div class="buttons is-centered">
-          <router-link :to="{ name: 'Cognitive' }" class="button is-light">Back</router-link>
+          <router-link :to="{ name: 'Menu' }" class="button is-light">Menu</router-link>
           <button @click="save" class="button is-success">Save</button>
         </div>
       </div>
@@ -74,6 +63,11 @@
 <script>
 export default {
   name: "MiniCog",
+  data () {
+    return {
+      activeStep: 0
+    }
+  },
   computed: {
     minicog: {
       get () {

@@ -2,6 +2,16 @@
   <div>
     <section class="section">
       <div class="container">
+        <b-steps size="is-medium" v-model="activeStep" :has-navigation="false">
+          <b-step-item label="Cognitive Capacity" step="1" icon="account">
+          </b-step-item>
+          <b-step-item label="Locomotor Capacity" step="2" icon="account"></b-step-item>
+          <b-step-item label="Malnutrition" step="3" icon="account"></b-step-item>
+          <b-step-item label="Visual Capacity" step="4" icon="account"></b-step-item>
+          <b-step-item label="Hearing Capacity" step="5" icon="account"></b-step-item>
+          <b-step-item label="Psychological Capacity" step="6" icon="account"></b-step-item>
+          <b-step-item label="Social Care and Support" step="7" icon="account"></b-step-item>
+        </b-steps>
         <div class="columns">
           <div class="column box is-one-third is-offset-4">
             <h1 class="title">MNA Assessment</h1>
@@ -185,6 +195,11 @@
 <script>
 export default {
   name: "MNAAssessment",
+  data () {
+    return {
+      activeStep: 2
+    }
+  },
   computed: {
     MNA: {
       get () {

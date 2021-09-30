@@ -146,6 +146,10 @@ const store = new Vuex.Store({
             } else {
                 commit('UPDATE_FORM_UPDATE_DATETIME')
                 await setDoc(doc(db, "records", state.form.id), state.form)
+                ToastProgrammatic.open({
+                    type: 'is-success',
+                    message: 'Data has been saved.'
+                })
             }
         },
         resetForm ({commit}) {
