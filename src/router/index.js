@@ -61,6 +61,16 @@ const routes = [
         name: 'WhisperTest',
         component: () => import('../views/WhisperTest')
     },
+    {
+        path: '/psycho-screening',
+        name: 'PsychoScreening',
+        component: () => import('../views/PsychoScreening')
+    },
+    {
+        path: '/mood-assessment',
+        name: 'MoodAssessment',
+        component: () => import('../views/MoodAssessment')
+    },
 ]
 
 const router = new VueRouter({
