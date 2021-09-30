@@ -68,6 +68,9 @@
                 <b-menu-item tag="router-link"
                              :to="{ name: 'PsychoScreening' }"
                              label="Screening"></b-menu-item>
+                <b-menu-item tag="router-link"
+                             :to="{ name: 'MoodAssessment' }"
+                             label="Mood Assessment"></b-menu-item>
               </b-menu-item>
               <b-menu-item expanded>
                 <template #label="props">

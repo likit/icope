@@ -55,6 +55,9 @@ function initForm() {
         },
         hearing: {
             result: null
+        },
+        psychology: {
+            mood: []
         }
     }
 }
@@ -102,6 +105,9 @@ const store = new Vuex.Store({
         },
         UPDATE_HEARING(state, data) {
             state.form.hearing = data
+        },
+        UPDATE_MOOD(state, data) {
+            state.form.psychology = data
         },
     }
 })
