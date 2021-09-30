@@ -42,6 +42,13 @@ function initForm() {
             totalScreen: null,
             totalAssessment: null,
             total: null,
+        },
+        vision: {
+            distance: {
+                smallE: null,
+                largeEfar: null,
+                largeEnear: null
+            },
         }
     }
 }
@@ -80,7 +87,10 @@ const store = new Vuex.Store({
         },
         UPDATE_MNA_TOTAL_SCORE(state) {
             state.form.MNA.total = state.form.MNA.totalScreen + state.form.MNA.totalAssessment
-        }
+        },
+        UPDATE_DISTANCE_VISION(state, data) {
+            state.form.vision.distance = data
+        },
     }
 })
 

@@ -8,12 +8,12 @@
             <strong>1. Test with the four small Es at 3 meters.</strong>
             <br><br>
             <b-field>
-              <b-radio native-value="pass" v-model="smallE">
+              <b-radio native-value="pass" v-model="distance.smallE">
                 Vision is 6/18 or better if the direction of at least three out of four small Es can be seen (PASS the distance vision screening test)
               </b-radio>
             </b-field>
             <b-field>
-              <b-radio native-value="fail" v-model="smallE">
+              <b-radio native-value="fail" v-model="distance.smallE">
                 If not able to see at least three out of the small Es (FAIL the distance vision screening test)
               </b-radio>
             </b-field>
@@ -22,7 +22,7 @@
             <strong>2. Test with the large Es at 3 metres.</strong>
             <br><br>
             <b-field>
-              <b-checkbox true-value="pass" false-value="fail" v-model="largeEfar">
+              <b-checkbox true-value="pass" false-value="fail" v-model="distance.largeEfar">
                 If the Es are seen, vision is 6/60.
               </b-checkbox>
             </b-field>
@@ -31,13 +31,16 @@
             <strong>3. Test with the large Es at 1.5 metres.</strong>
             <br><br>
             <b-field>
-              <b-checkbox true-value="pass" false-value="fail" v-model="largeEnear">
+              <b-checkbox true-value="pass" false-value="fail" v-model="distance.largeEnear">
                 If at least three out of four Es are seen, vision is 3/60.
               </b-checkbox>
             </b-field>
           </div>
         </div>
       </div>
+      <pre>
+        {{ $store.state.form.vision }}
+      </pre>
       <div class="buttons is-centered">
         <router-link :to="{ name: 'Menu'}" class="button is-light">Menu</router-link>
         <button class="button is-success">Save</button>
@@ -50,11 +53,14 @@
 <script>
 export default {
   name: "DistanceVision",
-  data () {
-    return {
-      smallE: null,
-      largeEfar: null,
-      largeEnear: null
+  computed: {
+    distance: {
+      get () {
+        return this.$store.state.form.vision.distance
+      },
+      set () {
+        this.$store.commit('UPDATE_DISTANCE_VISION', this.distance)
+      }
     }
   }
 }
