@@ -71,6 +71,11 @@ const routes = [
         name: 'MoodAssessment',
         component: () => import('../views/MoodAssessment')
     },
+    {
+        path: '/social-care-screening',
+        name: 'SocialCareScreening',
+        component: () => import('../views/SocialCareScreening')
+    },
 ]
 
 const router = new VueRouter({

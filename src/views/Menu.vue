@@ -66,6 +66,16 @@
                              :to="{ name: 'PsychoScreening' }"
                              label="Screening"></b-menu-item>
               </b-menu-item>
+              <b-menu-item icon="settings" :active="isActive" expanded>
+                <template #label="props">
+                  Social Care and Support
+                  <b-icon class="is-pulled-right"
+                          :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
+                </template>
+                <b-menu-item tag="router-link"
+                             :to="{ name: 'SocialCareScreening' }"
+                             label="Screening"></b-menu-item>
+              </b-menu-item>
             </b-menu-list>
           </b-menu>
         </div>
