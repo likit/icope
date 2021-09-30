@@ -8,7 +8,6 @@
           </figure>
         </div>
         <h1 class="title has-text-centered">Welcome to ICOPE App</h1>
-        country {{ form.country }}
         <div class="columns">
           <div class="column is-one-third is-offset-4 box">
             <b-field label="Country" type="is-danger">
@@ -21,10 +20,11 @@
             </b-field>
             <div class="buttons is-centered">
               <b-button type="is-primary"
+                        :disabled="form.country == null"
                         @click="$router.push({ name: 'Menu'})"
                         icon-right="chevron-right"
                         icon-pack="fas">
-                Next
+                Start
               </b-button>
             </div>
           </div>

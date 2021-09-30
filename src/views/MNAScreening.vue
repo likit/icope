@@ -113,6 +113,7 @@
       </pre>
       <div class="buttons is-centered">
         <router-link :to="{ name: 'Menu'}" class="button is-light">Menu</router-link>
+        <button class="button is-success" @click="save">Save</button>
       </div>
     </div>
   </section>
@@ -140,6 +141,11 @@ export default {
     totalScore (value) {
       this.$store.commit('UPDATE_MNA_SCREEN_SCORE', value)
       this.$store.commit('UPDATE_MNA_TOTAL_SCORE')
+    }
+  },
+  methods: {
+    save () {
+      this.$store.dispatch('saveForm')
     }
   }
 }

@@ -127,7 +127,7 @@
           </pre>
           <div class="buttons is-centered">
             <router-link :to="{ name: 'Menu' }" class="button is-light">Menu</router-link>
-            <button class="button is-success">Save</button>
+            <button class="button is-success" @click="save">Save</button>
           </div>
         </div>
       </div>
@@ -178,6 +178,11 @@ export default {
   watch: {
     totalScore (newValue) {
       this.$store.commit('UPDATE_SPPB_SCORE', newValue)
+    }
+  },
+  methods: {
+    save () {
+      this.$store.dispatch('saveForm')
     }
   }
 }

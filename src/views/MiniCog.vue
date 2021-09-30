@@ -64,6 +64,7 @@
         </div>
         <div class="buttons is-centered">
           <router-link :to="{ name: 'Cognitive' }" class="button is-light">Back</router-link>
+          <button @click="save" class="button is-success">Save</button>
         </div>
       </div>
     </section>
@@ -95,6 +96,11 @@ export default {
   watch: {
     totalScore (newValue) {
       this.$store.commit('UPDATE_MINICOG_SCORE', newValue)
+    }
+  },
+  methods: {
+    save () {
+      this.$store.dispatch('saveForm')
     }
   }
 }

@@ -84,6 +84,9 @@
               </b-menu-item>
             </b-menu-list>
           </b-menu>
+          <div class="buttons is-centered">
+            <button @click="finish" class="button is-success">Finish</button>
+          </div>
         </div>
       </div>
     </div>
@@ -92,6 +95,8 @@
 </template>
 
 <script>
+import {ToastProgrammatic} from "buefy";
+
 export default {
   name: "Menu",
   computed: {
@@ -102,6 +107,20 @@ export default {
       set () {
         this.$store.commit('UPDATE_FORM', this.form)
       }
+    }
+  },
+  methods: {
+    async finish () {
+      if (this.form.country == null) {
+        ToastProgrammatic.open({
+          type: 'is-warning',
+          message: 'Country must be specified.'
+        })
+      } else {
+        await this.$store.dispatch('saveForm')
+        await this.$store.dispatch('resetForm')
+      }
+      this.$router.push({ name: 'Entry'})
     }
   }
 }

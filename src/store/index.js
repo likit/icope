@@ -1,10 +1,16 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { db } from '../firebase'
+import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { ToastProgrammatic } from "buefy";
 
 Vue.use(Vuex)
 
 function initForm() {
     return {
+        id: null,
+        updated: null,
+        created: null,
         country: null,
         minicog: {
             recall: null,
@@ -115,6 +121,36 @@ const store = new Vuex.Store({
         UPDATE_SOCIAL_CARE(state, data) {
             state.form.socialCare = data
         },
+        UPDATE_FORM_ID(state, data) {
+            state.form.id = data
+        },
+        UPDATE_FORM_UPDATE_DATETIME(state) {
+            state.form.updated = new Date()
+        },
+        UPDATE_FORM_CREATE_DATETIME(state) {
+            state.form.created = new Date()
+        },
+    },
+    actions: {
+        async saveForm({commit, state}) {
+            const ref = collection(db, 'records')
+            if (state.form.id == null) {
+                commit('UPDATE_FORM_CREATE_DATETIME')
+                commit('UPDATE_FORM_UPDATE_DATETIME')
+                const docRef = await addDoc(ref, state.form)
+                commit('UPDATE_FORM_ID', docRef.id)
+                ToastProgrammatic.open({
+                    type: 'is-success',
+                    message: 'Data has been saved.'
+                })
+            } else {
+                commit('UPDATE_FORM_UPDATE_DATETIME')
+                await setDoc(doc(db, "records", state.form.id), state.form)
+            }
+        },
+        resetForm ({commit}) {
+            commit('UPDATE_FORM', initForm())
+        }
     }
 })
 

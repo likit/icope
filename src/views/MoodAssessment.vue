@@ -56,7 +56,7 @@
       </pre>
       <div class="buttons is-centered">
         <router-link :to="{ name: 'Menu'}" class="button is-light">Menu</router-link>
-        <button class="button is-success">Save</button>
+        <button class="button is-success" @click="save">Save</button>
       </div>
     </div>
   </section>
@@ -74,6 +74,11 @@ export default {
       set () {
         this.$store.commit('UPDATE_MOOD', this.psycho)
       }
+    }
+  },
+  methods: {
+    save () {
+      this.$store.dispatch('saveForm')
     }
   }
 }
