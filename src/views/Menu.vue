@@ -24,10 +24,8 @@
                 </template>
                 <b-menu-item tag="router-link" :to="{ name: 'ChairRiseTest' }"
                              label="Screening"></b-menu-item>
-                <b-menu-item tag="router-link" :to="{ name: 'MNAScreening' }"
-                             label="MNA Screening"></b-menu-item>
-                <b-menu-item tag="router-link" :to="{ name: 'MNAAssessment' }"
-                             label="MNA Assessment"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'SPPB' }"
+                             label="Short Physical Performance Battery (SPPB)"></b-menu-item>
               </b-menu-item>
               <b-menu-item expanded>
                 <template #label="props">
@@ -36,8 +34,10 @@
                 </template>
                 <b-menu-item tag="router-link" :to="{ name: 'Mulnutrition' }"
                              label="Screening"></b-menu-item>
-                <b-menu-item tag="router-link" :to="{ name: 'SPPB' }"
-                             label="Short Physical Performance Battery (SPPB)"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'MNAScreening' }"
+                             label="MNA Screening"></b-menu-item>
+                <b-menu-item tag="router-link" :to="{ name: 'MNAAssessment' }"
+                             label="MNA Assessment"></b-menu-item>
               </b-menu-item>
               <b-menu-item expanded>
                 <template #label="props">

@@ -18,6 +18,30 @@ function initForm() {
             gait: null,
             rise: null,
             total: null
+        },
+        MNA: {
+            A: null,
+            B: null,
+            C: null,
+            D: null,
+            E: null,
+            F: null,
+            G: null,
+            H: null,
+            I: null,
+            J: null,
+            K: [],
+            KScore: null,
+            L: null,
+            M: null,
+            N: null,
+            O: null,
+            P: null,
+            Q: null,
+            R: null,
+            totalScreen: null,
+            totalAssessment: null,
+            total: null,
         }
     }
 }
@@ -41,6 +65,21 @@ const store = new Vuex.Store({
         },
         UPDATE_SPPB_SCORE(state, score) {
             state.form.SPPB.total = score
+        },
+        UPDATE_MNA(state, data) {
+            state.form.MNA = data
+        },
+        UPDATE_MNA_SCREEN_SCORE(state, score) {
+            state.form.MNA.totalScreen = score
+        },
+        UPDATE_MNA_ASSESSMENT_SCORE(state, score) {
+            state.form.MNA.totalAssessment = score
+        },
+        UPDATE_MNA_K_SCORE(state, score) {
+            state.form.MNA.Kscore = score
+        },
+        UPDATE_MNA_TOTAL_SCORE(state) {
+            state.form.MNA.total = state.form.MNA.totalScreen + state.form.MNA.totalAssessment
         }
     }
 })
