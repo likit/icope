@@ -46,16 +46,16 @@
                 <b-menu-item tag="router-link" :to="{ name: 'NearVision' }"
                              label="Near vision test"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="account" label="My Account">
-                <b-menu-item label="Account data"></b-menu-item>
-                <b-menu-item label="Addresses"></b-menu-item>
+              <b-menu-item icon="settings" :active="isActive" expanded>
+                <template #label="props">
+                  Hearing Capacity
+                  <b-icon class="is-pulled-right"
+                          :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
+                </template>
+                <b-menu-item tag="router-link"
+                             :to="{ name: 'WhisperTest' }"
+                             label="Whisper voice test"></b-menu-item>
               </b-menu-item>
-            </b-menu-list>
-            <b-menu-list>
-              <b-menu-item label="Home" icon="Home" tag="router-link" :to="{ name: 'Entry'}"></b-menu-item>
-            </b-menu-list>
-            <b-menu-list label="Actions">
-              <b-menu-item label="Logout"></b-menu-item>
             </b-menu-list>
           </b-menu>
         </div>

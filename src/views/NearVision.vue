@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "DistanceVision"
+  name: "NearVision"
 }
 </script>
 

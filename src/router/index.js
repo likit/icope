@@ -56,6 +56,11 @@ const routes = [
         name: 'NearVision',
         component: () => import('../views/NearVision')
     },
+    {
+        path: '/whisper-test',
+        name: 'WhisperTest',
+        component: () => import('../views/WhisperTest')
+    },
 ]
 
 const router = new VueRouter({
