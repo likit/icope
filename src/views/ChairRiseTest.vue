@@ -2,7 +2,7 @@
   <div>
     <section class="section">
       <div class="container">
-        <b-steps size="is-medium" v-model="activeStep" :has-navigation="false">
+        <b-steps size="is-medium" :has-navigation="false">
           <b-step-item label="Screening" step="1" icon-pack="fas" icon="account">
           </b-step-item>
           <b-step-item label="SPPB" step="2" icon="account"></b-step-item>

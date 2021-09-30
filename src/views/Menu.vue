@@ -4,17 +4,20 @@
     <div class="container">
       <div class="columns">
         <div class="column is-one-third is-offset-4 box">
+          {{ form.country }}
           <b-menu>
             <b-menu-list label="Menu">
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Cognitive Capacity
                   <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
                 </template>
-                <b-menu-item label="Screening"></b-menu-item>
-                <b-menu-item label="Mini-Cog"></b-menu-item>
+                <b-menu-item label="Screening"
+                             tag="router-link" :to="{ name: 'Cognitive' }"></b-menu-item>
+                <b-menu-item label="Mini-Cog"
+                             tag="router-link" :to="{ name: 'MiniCog' }"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Locomotor Capacity
                   <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
@@ -26,7 +29,7 @@
                 <b-menu-item tag="router-link" :to="{ name: 'MNAAssessment' }"
                              label="MNA Assessment"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Mulnutrition
                   <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
@@ -36,7 +39,7 @@
                 <b-menu-item tag="router-link" :to="{ name: 'SPPB' }"
                              label="Short Physical Performance Battery (SPPB)"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Visual Capacity
                   <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'"></b-icon>
@@ -46,7 +49,7 @@
                 <b-menu-item tag="router-link" :to="{ name: 'NearVision' }"
                              label="Near vision test"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Hearing Capacity
                   <b-icon class="is-pulled-right"
@@ -56,7 +59,7 @@
                              :to="{ name: 'WhisperTest' }"
                              label="Whisper voice test"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Psychological Capacity
                   <b-icon class="is-pulled-right"
@@ -66,7 +69,7 @@
                              :to="{ name: 'PsychoScreening' }"
                              label="Screening"></b-menu-item>
               </b-menu-item>
-              <b-menu-item icon="settings" :active="isActive" expanded>
+              <b-menu-item expanded>
                 <template #label="props">
                   Social Care and Support
                   <b-icon class="is-pulled-right"
@@ -87,7 +90,17 @@
 
 <script>
 export default {
-  name: "Menu"
+  name: "Menu",
+  computed: {
+    form: {
+      get () {
+        return this.$store.state.form
+      },
+      set () {
+        this.$store.commit('UPDATE_FORM', this.form)
+      }
+    }
+  }
 }
 </script>
 
