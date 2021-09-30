@@ -16,9 +16,14 @@
           </div>
           <div class="notification">
             <b-field>
-              <b-checkbox true-value="pass" false-value="fail" v-model="result">
+              <b-radio native-value="pass" v-model="hearing.result">
                 If the person repeats more than three words and you are sure that s/he can hear you clearly, then the person is likely to have normal hearing in that ear.
-              </b-checkbox>
+              </b-radio>
+            </b-field>
+            <b-field>
+              <b-radio native-value="fail" v-model="hearing.result">
+                <strong>FAIL</strong>
+              </b-radio>
             </b-field>
           </div>
           <div class="content">
@@ -36,6 +41,9 @@
           </div>
         </div>
       </div>
+      <pre>
+        {{ $store.state.form.hearing }}
+      </pre>
       <div class="buttons is-centered">
         <router-link :to="{ name: 'Menu'}" class="button is-light">Menu</router-link>
         <button class="button is-success">Save</button>
@@ -48,9 +56,14 @@
 <script>
 export default {
   name: "WhisperTest",
-  data () {
-    return {
-      result: null
+  computed: {
+    hearing: {
+      get () {
+        return this.$store.state.form.hearing
+      },
+      set () {
+        this.$store.commit('UPDATE_HEARING', this.hearing)
+      }
     }
   }
 }

@@ -49,6 +49,12 @@ function initForm() {
                 largeEfar: null,
                 largeEnear: null
             },
+            near: {
+                result: null
+            }
+        },
+        hearing: {
+            result: null
         }
     }
 }
@@ -90,6 +96,12 @@ const store = new Vuex.Store({
         },
         UPDATE_DISTANCE_VISION(state, data) {
             state.form.vision.distance = data
+        },
+        UPDATE_NEAR_VISION(state, data) {
+            state.form.vision.near = data
+        },
+        UPDATE_HEARING(state, data) {
+            state.form.hearing = data
         },
     }
 })
