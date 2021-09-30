@@ -58,6 +58,9 @@ function initForm() {
         },
         psychology: {
             mood: []
+        },
+        socialCare: {
+            result: []
         }
     }
 }
@@ -108,6 +111,9 @@ const store = new Vuex.Store({
         },
         UPDATE_MOOD(state, data) {
             state.form.psychology = data
+        },
+        UPDATE_SOCIAL_CARE(state, data) {
+            state.form.socialCare = data
         },
     }
 })
